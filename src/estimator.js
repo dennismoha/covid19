@@ -15,9 +15,9 @@ const factor = (data) => {
 
 const normalCases = (data) => (data.reportedCases * 10) * (2 ** (Math.trunc(factor(data))));
 const severCases = (data) => (data.reportedCases * 50) * (2 ** (Math.trunc(factor(data))));
-const hospitalBeds = (data) => (0.35 * data.totalHospitalBeds);
-const income = (data) => data.region.avgDailyIncomeInUSD;
-const population = (data) => data.region.avgDailyIncomePopulation;
+// const hospitalBeds = (data) => (0.35 * data.totalHospitalBeds);
+// const income = (data) => data.region.avgDailyIncomeInUSD;
+// const population = (data) => data.region.avgDailyIncomePopulation;
 
 const covid19ImpactEstimator = (data) => ({
     data,
@@ -25,7 +25,7 @@ const covid19ImpactEstimator = (data) => ({
         currentlyInfected: data.reportedCases * 10,
         infectionsByRequestedTime: (normalCases(data)),
         severeCasesByRequestedTime: (normalCases(data)) * 0.15
-        // hospitalBedsByRequestedTime: Math.trunc((hospitalBeds(data)) - (0.15 * normalCases(data))),
+        // hospitalBedsByRequestedTime: Math.trunc((hospitalBeds(data))-(0.15 * normalCases(data))),
         // casesForICUByRequestedTime: Math.trunc(0.05 * (normalCases(data))),
         // casesForVentilatorsByRequestedTime: Math.trunc(0.02 * (normalCases(data))),
         // dollarsInFlight: (normalCases(data)) * income * population * (2 ** factor(data))
@@ -35,7 +35,7 @@ const covid19ImpactEstimator = (data) => ({
         currentlyInfected: data.reportedCases * 50,
         infectionsByRequestedTime: (severCases(data)),
         severeCasesByRequestedTime: (severCases(data)) * 0.15
-        // hospitalBedsByRequestedTime: Math.trunc((hospitalBeds(data)) - (0.15 * severCases(data))),
+        // hospitalBedsByRequestedTime: Math.trunc((hospitalBeds(data)) -(0.15 * severCases(data))),
         // casesForICUByRequestedTime: Math.trunc(0.5 * (severCases(data))),
         // casesForVentilatorsByRequestedTime: Math.trunc(0.2 * (severCases(data))),
         // dollarsInFlight: (severCases(data)) * income * population * (2 ** factor(data))
