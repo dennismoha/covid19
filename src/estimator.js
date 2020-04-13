@@ -13,8 +13,8 @@ const factor = (data) => {
     return getfactor;
 };
 
-const normalCases = (data) => (data.reportedCases * 10) * (2 ** (Math.trunc(factor(data)) / 3));
-const severCases = (data) => (data.reportedCases * 50) * (2 ** (Math.trunc(factor(data)) / 3));
+const normalCases = (data) => (data.reportedCases * 10) * (2 ** (Math.trunc(factor(data) / 3)));
+const severCases = (data) => (data.reportedCases * 50) * (2 ** (Math.trunc(factor(data) / 3)));
 // const hospitalBeds = (data) => (0.35 * data.totalHospitalBeds);
 // const income = (data) => data.region.avgDailyIncomeInUSD;
 // const population = (data) => data.region.avgDailyIncomePopulation;
