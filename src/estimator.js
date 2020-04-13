@@ -2,11 +2,11 @@
 const factor = (data) => {
     let getfactor;
     if (data.periodType.trim().toLowerCase() === 'days') {
-        getfactor = 2 * (data.timeToElapse / 3);
+        getfactor = (data.timeToElapse * 1);
     } else if (data.periodType.trim().toLowerCase() === 'weeks') {
-        getfactor = 2 * ((data.timeToElapse * 7) / 3);
+        getfactor = (data.timeToElapse * 7);
     } else if (data.periodType.trim().toLowerCase() === 'months') {
-        getfactor = 2 * ((data.timeToElapse * 30) / 3);
+        getfactor = (data.timeToElapse * 30);
     } else {
         getfactor = 0;
     }
